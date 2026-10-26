@@ -91,7 +91,7 @@ body.at-end #hint{opacity:0}
 /* ============ 1 封面 ============ */
 #s1{background:linear-gradient(180deg,#fff 0%,#EAF2FB 100%)}
 #s1 .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--brand-d);margin-bottom:10px}
-#s1 .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(31,179,107,.2);animation:blink 1.6s infinite}
+#s1 .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(31,179,107,.2)}
 #s1 h1{font-size:44px;line-height:1.12;font-weight:900;letter-spacing:.02em;margin-bottom:8px;color:var(--navy)}
 #s1 h1 em{font-style:normal;color:var(--brand-d)}
 #s1 .sub{font-size:16px;color:var(--sub);margin-bottom:16px}
@@ -278,15 +278,15 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .btn{position:relative;overflow:hidden}
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:rip .65s ease-out forwards;pointer-events:none}
 @keyframes rip{to{transform:scale(1);opacity:0}}
-.glowbtn{box-shadow:0 8px 24px rgba(11,46,107,.38);animation:glowp 2.6s ease-in-out infinite}
+.glowbtn{box-shadow:0 8px 24px rgba(11,46,107,.38)}
 @keyframes glowp{50%{box-shadow:0 10px 34px rgba(0,129,204,.62)}}
 #prog{position:fixed;left:0;right:0;top:0;height:3px;z-index:40;background:rgba(11,46,107,.08)}
 #prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-l));box-shadow:0 0 10px rgba(79,179,238,.8);transition:width .15s linear}
 
 /* ====== 标题逐字入场 ====== */
-.ch{display:inline-block;opacity:0;transform:translateY(.55em) rotate(5deg);filter:blur(7px)}
-.screen.in .ch{animation:chIn .75s var(--ease) both;animation-delay:calc(var(--i)*42ms + 140ms)}
-@keyframes chIn{to{opacity:1;transform:none;filter:none}}
+.ch{display:inline-block;opacity:0;transform:translateY(.4em)}
+.screen.in .ch{animation:chIn .6s var(--ease) both;animation-delay:calc(var(--i)*30ms + 80ms)}
+@keyframes chIn{to{opacity:1;transform:none}}
 
 /* ====== 视差（独立 translate 属性，不与 transform 冲突） ====== */
 .plx{translate:0 calc(var(--p,0)*22px)}
@@ -310,11 +310,11 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .sweep{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .sweep::after{content:"";position:absolute;top:-10%;bottom:-10%;width:34%;left:-40%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(79,179,238,.34),transparent);animation:sweep 5.2s ease-in-out infinite 1.6s}
 @keyframes sweep{0%{left:-40%}55%,100%{left:120%}}
-.fb{position:absolute;padding:7px 12px;border-radius:14px;background:rgba(255,255,255,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(11,46,107,.16);font-weight:900;font-size:15px;color:var(--navy);line-height:1.15;animation:floaty 5s ease-in-out infinite;z-index:2}
+.fb{position:absolute;padding:7px 12px;border-radius:14px;background:rgba(255,255,255,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(11,46,107,.16);font-weight:900;font-size:15px;color:var(--navy);line-height:1.15;z-index:2}
 .fb small{display:block;font-size:10.5px;font-weight:700;color:var(--sub);letter-spacing:.04em}
 .fb.f1{left:26px;top:42%}.fb.f2{right:30px;top:12%;animation-delay:-1.8s}.fb.f3{right:22px;top:70%;animation-delay:-3.2s}
 @keyframes floaty{50%{transform:translateY(-9px)}}
-#s1 .stage img{animation:heroIn 1.4s var(--ease) both .5s}
+
 @keyframes heroIn{from{opacity:0;transform:scale(.9) translateY(20px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
 
 /* ====== 停电：闪烁 + 扩散环 ====== */
@@ -387,13 +387,11 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
 <!-- 1 封面 -->
 <section class="screen" id="s1" aria-label="封面">
-  <div class="aurora plx2" aria-hidden="true"><i></i><i></i><i></i></div>
-  <canvas class="pcv" id="pcv1" aria-hidden="true"></canvas>
   <div class="inner">
     <div class="tag rv">ON-SITE PRINTING · 现场打印</div>
     <h1 class="rv" data-split>现场作业，<br><em>不停歇</em></h1>
     <p class="sub rv">CL4NX Plus × UPS 移动打印方案</p>
-    <div class="stage rv plx" id="heroStage"><img src="images/concept_front_a.webp" alt="CL4NX Plus 打印机搭配 UPS 移动电源"><div class="sweep" aria-hidden="true"></div>
+    <div class="stage rv plx" id="heroStage"><img src="images/concept_front_a.webp" alt="CL4NX Plus 打印机搭配 UPS 移动电源">
       <span class="fb f1">256Wh<small>UPS 电池</small></span><span class="fb f2">104mm<small>最大打印宽度</small></span><span class="fb f3">RFID · Wi-Fi<small>按配置选配</small></span></div>
     <div class="chips rv"><span>工业级标签打印</span><span>UPS 备援供电</span><span>推到作业点就打</span></div>
     <div class="cta rv"><button class="btn navy glowbtn" type="button" data-goto="s2">开始体验 <span aria-hidden="true">↓</span></button></div>
@@ -889,7 +887,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
     }
     new IntersectionObserver(function(es){ vis = es[0].isIntersecting; if(vis && !raf) raf = requestAnimationFrame(frame); }, {root:app}).observe(cv.parentNode);
   }
-  particles('pcv1','0,129,204',34); particles('pcv10','79,179,238',38);
+  particles('pcv10','79,179,238',38);
 
   /* ====== 升级：优势聚光（自动轮播，点击后由用户接管） ====== */
   var advs = [
